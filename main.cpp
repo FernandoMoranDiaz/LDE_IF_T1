@@ -47,6 +47,7 @@ public:
     int Contar();
     Nodo *Buscar(int);
     void Borrar(int);
+    void pruebafin();
     LDE()
     {
         Inicio=NULL;
@@ -55,6 +56,71 @@ public:
     }
     
 };
+void LDE::pruebafin(){
+	
+    if(!Inicio)
+    cout<<"Lista Vacia"<<endl;
+    else
+        {
+            Fin->Imprimir();
+        }	
+}
+
+
+void LDE::Imprimir()
+{
+    if(!Inicio)
+        cout<<"Lista Vacia"<<endl;
+    else
+    {
+        Nodo *Aux=Inicio;
+        while(Aux!=NULL);
+        {
+            Aux->Imprimir();
+            Aux=Aux->Obtienesig();
+        }
+    }
+}
+
+void LDE::ImprimirR()
+{
+    if(!Inicio)
+        cout<<"Lista Vacia"<<endl;
+    else
+    {
+        Nodo *Aux=Fin;
+        while(Aux!=NULL)
+        {
+           Aux->Imprimir();
+            Aux=Aux->Obtieneant();
+        }
+    }
+}
+void LDE::Borrar(int x)
+{
+    Nodo *simi=Buscar(x);
+    if(simi==NULL)
+         cout<<"no se encontro el dato";
+    else
+    {
+        if(simi==Inicio
+            BorrarI);
+        else
+        {
+            if(simi==Fin)
+                BorrarF();
+            else
+            {
+               Nodo *XL=simi->Obtieneant();
+                XL->Asignasig(simi->Obtienesig());
+                simi->Obtienesig()->Asignaant(XL);
+                simi->Asignasig(NULL);
+                simi->Asignaant(NULL);
+                delete simi;
+            }
+        }
+    }
+}
 
 
 
@@ -114,7 +180,8 @@ int main(int argc, const char * argv[])
         cout<<"6.- Borrar"<<endl;
         cout<<"7.- Imprimir"<<endl;
         cout<<"8.- Imprimir en Reversa"<<endl;
-        cout<<"9.- Salir"<<endl;
+        cout<<"9.-PruebaFin"<<endl;
+        cout<<"10 Salir"<<endl;
         cout<<"Teclee la opcion"<<endl;
         cin>>opc;
         
@@ -151,11 +218,14 @@ int main(int argc, const char * argv[])
             case 8:
                 A.ImprimirR();
                 break;
+            case 9:
+                A.pruebafin();
+                break;
             default:
                 cout<<"opción salir...";
                 break;
         }
-    }while(opc<9);
+    }while(opc<10;
     
     return 0;
 }
